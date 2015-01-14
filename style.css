@@ -1,0 +1,828 @@
+/*
+Theme Name: Limitless
+Author: Seiji Naganuma
+Author Info: www.seijinaganuma.com
+Version: 1.0
+*/
+
+/********** General Layout ************/
+/* Global settings */
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+a:link,
+a:visited {
+    color: #333;
+}
+
+p {
+    line-height: 2em;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Background Class */
+.background {
+    margin: 0;
+}
+
+/*default setting for site contents */
+.site-footer,
+.site-header, 
+.site-content {
+    max-width: 100vw;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* For floating footers */
+.site-content {
+    min-height:100%;
+    padding-bottom: 400px;
+}
+
+/* Clearfix */
+.clearfix:before, .clearfix:after {content: ""; display: table; }
+.clearfix:after {clear: both; }
+.clearfix {*zoom: 1; }
+
+/* Center class*/
+.center,
+.aligncenter {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignleft {
+	position: left;
+}
+
+.alignright {
+	position: right;
+}
+
+/* Sizing content container class */
+.inner-container {
+    margin-left: 76px;
+    margin-right: 76px;
+}
+
+.no-content {
+
+    padding-left: 10px;
+}
+
+.centered-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: #FFF;
+}
+
+.hover-underline:hover {
+    text-decoration: underline;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+/* Icon fonts */
+@font-face {
+  font-family: 'fontello';
+  src: url('font/fontello.eot');
+  src: url('font/fontello.eot#iefix') format('embedded-opentype'),
+       url('font/fontello.woff') format('woff'),
+       url('font/fontello.ttf') format('truetype'),
+       url('font/fontello.svg#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+     
+     font-variant: normal;
+     text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+     line-height: 1em;
+    margin-left: .2em;
+    font-size: 120%;
+    text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+}
+ 
+.icon-twitter-bird:before { content: '\e800'; } /* '' */
+.icon-facebook-rect:before { content: '\e801'; } /* '' */
+.icon-googleplus-rect:before { content: '\e802'; } /* '' */
+.icon-github:before { content: '\e803'; } /* '' */
+.icon-instagram:before { content: '\e804'; } /* '' */
+.icon-linkedin-rect:before { content: '\e805'; } /* '' */
+.icon-rss:before { content: '\e806'; } /* '' */
+
+i {
+    float:left;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+/********* End General Layout ********/
+
+/********* General Nav Menus **********/
+.site-nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+.site-nav ul:before, .site-nav ul:after { content: ""; display: inline-block; }
+.site-nav ul:after { clear: both; }
+.site-nav ul { *zoom: 1; }
+*/
+.site-nav ul li {
+    list-style: none;
+    float: left;
+}
+
+/********* End General Nav Menu ********/
+
+/********* Header section ***********/
+/* Header background */
+.header-background {
+    background-color: #333;
+    width: 100vw;
+    height: 36px;
+    position: fixed;
+    z-index: 100;
+}
+
+/* Main Header container */
+.site-header {
+}
+
+/* Set home and primary containers on header bar*/
+.home-menu,
+.primary-menu {
+    display: inline;
+}
+
+.home-menu {
+    float: left;
+}
+
+.primary-menu {
+    float: right;
+}
+
+/*** PRIMARY MENU SETTINGS **/
+/* General Setting*/
+.primary-menu ul,
+.primary-menu li,
+.primary-menu a,
+.home-menu ul {
+    border: none;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* First level list item */
+.primary-menu > ul > li {
+    float: left;
+    padding: 0;
+    margin: 0;
+    display: block;
+    position: relative;
+    list-style: inside none;
+}
+
+/* First level links */
+.primary-menu > ul > li > a:link,
+.primary-menu > ul > li > a:visited {
+    display: block;
+    position: relative;
+    padding: 10px 15px;
+    border-right: 1px solid #BBB;
+    border-bottom: none;
+    text-decoration: none;
+    color: #FFF;
+    max-height: 16px;
+}
+
+/* Extra padding on left for menus with submenus */
+.primary-menu > ul > li.has-sub > a:link,
+.primary-menu > ul > li.has-sub > a:visited {
+    padding: 10px 25px 10px 15px;
+    max-height: 16px;
+}
+
+/* Created down arrow if there is sub menu */
+.primary-menu > ul > li.has-sub > a:before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    right: 9px;
+    border: 5px solid transparent;
+    border-top: 5px solid #ffffff;
+}
+
+/* Change arrow color when current menu is active */
+.primary-menu > ul > li.has-sub.current-menu-item > a:before,
+.primary-menu > ul > li.has-sub.current-category-ancestor > a:before {
+    border-top: 5px solid #333;
+}
+
+/* Slightly move arrow when hovered */
+.primary-menu > ul > li.has-sub:hover > a:before {
+    top: 18px;
+}
+     
+/* Action for when first level is hovered*/
+.primary-menu > ul > li > a:hover,
+.primary-menu > ul > li > ul > li a:hover {
+    color: #9aff25;
+}
+
+/* Change background for first level when focus is on menu*/
+.primary-menu > ul > li.current-menu-item > a:link,
+.primary-menu > ul > li.current-menu-item > a:visited,
+.primary-menu > ul > li.current-category-parent > a:link,
+.primary-menu > ul > li.current-category-parent > a:visited {
+    background-color: #ECECEC;
+    color: #333;
+}
+
+/* Show submenu when hovered over */   
+.primary-menu ul li.has-sub:hover > ul,
+.primary-menu ul li.has-sub:hover > div {
+	display: block;
+}
+
+/* Configure main container for submenu */
+.primary-menu ul li > ul,
+.primary-menu ul li > div {
+	display: none;
+	width: auto;
+	position: absolute;
+	padding: 5px 0;
+	background-color: #333;
+	z-index: 999;
+}
+
+/* Configure submenu list items*/
+.primary-menu ul li > ul li {
+	display: block;
+	list-style: inside none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+/* Configure submenu links */
+.primary-menu ul li > ul li a {
+	outline: none;
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 8px 30px 8px 20px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/** HOME MENU configuration **/
+.home-menu ul li {
+    list-style: inside none;
+}
+.home-menu ul li a:link,
+.home-menu ul li a:visited {
+    display: inline-block;
+    padding: 10px 30px 10px 0;
+    border-bottom: none;
+    text-decoration: none;
+    font-style: italic;
+    color: #FFF;
+    max-height: 16px;
+}
+
+.home-menu ul li.current-menu-item a:link,
+.home-menu ul li.current-menu-item a:visited,
+.home-menu ul li.current-page-ancestor a:link,
+.home-menu ul li.current-page-ancestor a:visited {
+    background-color: #333;
+    color: #FFF;
+}
+
+.home-menu > ul > li > a:hover,
+.home-menu ul li.current-menu-item a:hover,
+.home-menu ul li.current-page-ancestor a:hover {
+color: #9aff25;
+}
+
+.menu-text {
+    white-space: nowrap;
+}
+
+/********* End Header section ********/
+
+/********* Footer section ***********/
+/* Footer background */
+.footer-background {
+    background-color: #B6C5Dc;
+    max-height: 350px;
+    min-height: 200px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0 40px 0;
+}
+/* Main Footer container */
+.footer-container {
+    position: relative;
+}
+
+/* Footer widget area */
+.footer-widget-area {
+    width: 25%;
+    float: left;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.footer-widget-area ul {
+    margin-top: 0;
+    padding-left: 10px;
+}
+
+.footer-widget-area ul li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.footer-widget-area ul li a:link,
+.footer-widget-area ul li a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Footer widget title */
+.footer-widget-title {
+    margin-bottom: 4px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Footer Menu */
+.site-footer nav ul li {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px dotted #BBB;
+}
+
+/* Footer info area */
+.footer-info {
+    border-top: 2px dotted #55616B;
+}
+
+.footer-info p {
+    margin-bottom: 2px;
+    margin-top: 2px;
+    font-size: 75%;
+    color: #55616B;
+}
+
+.contact-links {
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+/********* End Footer section ********/
+
+/********* Front Page Setting ********/
+/* Configure parallax class */
+/* Creates fixed 3D viewport */
+.parallax {
+    -webkit-persepective: 1px;
+    perspective: 1px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 36px 0 0 0;
+    height: calc(100vh - 36px);
+}
+
+
+/* Create detached parallax element */
+.parallax_layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* Configure scroll speed for layers*/
+/* Also add depth correction 1 + (translateZ * -1) / perspective */
+.parallax_layer_base {
+    -ms-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+}
+
+.parallax_layer_back {
+    -ms-transform: translateZ(-1px) scale(2);
+    -webkit-transform: translateZ(-1px) scale(2);
+    -moz-transform: translateZ(-1px) scale(2);
+    transform: translateZ(-1px) scale(2);
+    z-index: 3;
+    height: 100%;
+    width:  100%;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.parallax_group {
+    position: relative;
+    height: 100vh;
+    -ms-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.content {
+    position: absolute;
+}
+
+.fixed-height {
+    min-height: 900px;
+}
+.fixed-height-gallery {
+    min-height: 60vw;
+}
+/* Back Group configuration */
+.layer2 {
+    z-index: 2;
+}
+
+.layer2 .content {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #FFF;
+}
+
+/* Base Group configuration */
+.layer1 {
+    z-index: 3;
+}
+
+.parallax_background {
+    height: 100%;
+    width:  100%;
+    background-color: white;
+}
+ 
+.layer1 .content {
+    height: 100%;
+    width: 100%;
+}
+
+.layer1 h1 {
+    padding: 60px 0 50px 0;
+    margin: 0;
+    font-size: 3em;
+}
+
+.transparent {
+    height: 100%;
+    background-color: #333;
+    opacity: 0.7;
+}
+
+/* Group 1 configuration */
+
+#group1 .parallax_layer_back {
+    background-image: url("http://www.SeijiNaganuma.com/wp-content/uploads/2014/12/LA-Getty-edit.jpg");
+}
+
+#group1 h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+#group1 h3 {
+    line-height: 1.7em;
+}
+
+/* Group 2 (Blog Preview) specific config */
+#group2 h2 {
+    margin-bottom: 0;
+}
+
+.three-columns{
+    height: 100%;
+    width: 100%;
+    float: left;
+    max-width: 29.33%;
+    margin: 2%;
+}
+
+.post-thumbnail img,
+.border-round {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.post-thumbnail {
+    position: relative;
+}
+
+/* Group 3 specific config */
+
+#group3 .parallax_layer_back {
+    background-image: url("http://www.SeijiNaganuma.com/wp-content/uploads/2014/12/Fall-Leaves-grey-edit.jpg");
+}
+
+.quote-content {
+    max-width: 100vw;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Group 4 specific config */
+
+
+/* Group 5 specific config */
+#group5 .parallax_layer_back {
+    background-image: url("http://www.SeijiNaganuma.com/wp-content/uploads/2014/12/Soccer-Field-edit.jpg");
+}
+
+/* Group 6 (About me) specific config */
+.about-me-pic {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 12px solid #365878;
+    height: 350px;
+    width: 350px;
+    overflow: hidden;
+    position: relative;
+}
+.about-me-pic img {
+    width: auto;
+    height: 100%;
+    position: relative;
+    left: -25%;
+}
+
+.about-me-text {
+    font-size: 1.25em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Group 7 specific config */
+#group7 {
+    height: 400px;
+}
+
+/********* End Front Page Setting ********/
+
+/********* Archive/Page Header settings *********/
+.archive > h2,
+.about-me > h2,
+.page> h2 {
+    font-size: 3.5em;
+    text-align: center;
+    border-bottom: #999 1px dashed;
+    padding-bottom: 15px;
+}
+
+.archive > h2,
+.page > h2 {
+    padding-top: 100px;
+}
+
+
+/********* End Archive/Page Header Settings ********/
+
+/******* Post Styles ********/
+.post {
+    margin-bottom: 1.5em;
+}
+
+.post h2,
+.image-info h2{
+    margin-bottom: 0;
+}
+
+.post-title a,
+.image-title a {
+    text-decoration: none;
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+}
+
+p.post-info {
+    margin-top: 5px;
+    font-size: 87%;
+    color: #999;
+}
+
+p.post-info a:link,
+p.post-info a:visited {
+    color: #999;
+}
+
+.small-divider {
+    border-top: 1px dotted #999;
+}
+
+#disqus_thread {
+    margin-top: 110px;
+    border-top: #999 1px dashed;
+    padding-top: 20px;
+}
+
+/****** End Post Style Section ******/
+
+/******* Image Styles ********/
+.image-transparent {
+    background-color: #333;
+    opacity: 0.7;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-box-shadow: 3px 3px 10px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 10px 5px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 10px 5px rgba(0,0,0,0.75);
+}
+
+.image {
+    float: left;
+    position: relative;
+    height:auto;
+    margin: 1%;
+}
+
+.image-title a:link,
+.image-title a:visited {
+    color: #FFF;
+}
+
+.gallery-large {
+    width: 48%;
+}
+
+.gallery-small {
+    width: 31.3333%;
+}
+
+/****** End Image Style Section ******/
+
+/****** Single Post Style Section ******/
+.post-background-img {
+    height: 100%;
+    width: 100%;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.main-text {
+    padding-top: 25px;
+}
+
+.main-text p {
+    margin: 2em 0;    
+    padding-top: 0px;
+    font-size: 18px;
+}
+
+.main-text h1 { font-size: 2.5em;}
+.main-text h2 { font-size: 1.875em;}
+.main-text h3 { font-size: 1.463em;}
+.main-text h4 { font-size: 1.4em;}
+
+.main-text li {
+    font-size: 18px;
+    margin-bottom: 1em;
+    line-height: 1.5em;
+}
+
+.main-text li li {
+    font-size: 1em;
+}
+
+.main-text img{
+	height: auto;
+	width: auto;
+}
+
+.post-meta a:link,
+.post-meta a:visited {
+    color: #FFF;
+}
+/****** End Post Style Section ******/
+
+/****** About-Me Section ******/
+.about-me {
+    margin-top: 20px;
+}
+
+/****** End About-Me Section ******/
+
+/****** Fade-in Section ******/
+.fade-in-solid {
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.fade-in-solid:hover {
+    opacity: 1;
+}
+
+/****** End Fade-in Section ******/
+
+
+.pp_content_container li a,
+.pp_gallery,
+.separator-doubled {
+    display: none !important;
+}
+
+/* Search section */
+div.hd-search {
+    float: right;
+    padding-top: 7.5px;
+}
+
+div.hd-search label {
+    position: absolute;
+    left: -9999px;
+}
+
+div.hd-search #searchsubmit {
+    background-color: #006ec3;
+    color: #FFF;
+    padding: 5px 14px;
+    border: none;
+    vertical-align: top;
+}
+
+div.hd-search #s {
+    vertical-align: top;
+    padding: 3px 0;
+}
+
+
