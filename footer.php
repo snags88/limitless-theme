@@ -26,7 +26,11 @@
 					<div class="footer-widget-area">
 						<h4 class="footer-widget-title">Most Recent Posts</h4>
 						<?php
-						$recentPosts = new WP_Query('cat=12','posts_per_page=3'); 
+                        $args = array(
+                                        'posts_per_page'      => 3,
+                                        'cat'                 => 12
+                                     );
+						$recentPosts = new WP_Query($args); 
 						if($recentPosts->have_posts()) :
 							?> <ul> <?php
 								while($recentPosts->have_posts()) : $recentPosts->the_post();
