@@ -32,6 +32,10 @@ img {
     display: block;
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
 /* Background Class */
 .background {
     margin: 0;
